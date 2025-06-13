@@ -4,7 +4,7 @@
 
 - name: Symlink Rime config for Unix-like systems (Linux, macOS)
   ansible.builtin.file:
-    src: "{{ playbook_dir }}/roles/rime/files/rime"
+    src: "{{ role_path }}/roles/rime/files/rime"
     dest: "{{ rime_destination_paths[ansible_os_family] }}"
     state: link
     force: true
@@ -12,7 +12,7 @@
 
 - name: Symlink Rime config for Windows
   ansible.windows.win_file:
-    src: "{{ playbook_dir }}/roles/rime/files/rime"
+    src: "{{ role_path }}/roles/rime/files/rime"
     dest: "{{ rime_destination_paths[ansible_os_family] }}"
     state: junction
   when: ansible_os_family == "Windows"
