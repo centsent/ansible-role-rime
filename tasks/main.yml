@@ -3,8 +3,8 @@
   ansible.builtin.include_vars: vars/main.yml
 
 - name: Symlink Rime config for Unix-like systems (Linux, macOS)
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/rime"
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/rime/"
     dest: "{{ rime_destination_paths[ansible_system] }}"
     state: link
     force: true
