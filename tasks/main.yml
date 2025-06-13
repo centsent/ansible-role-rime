@@ -8,7 +8,7 @@
     dest: "{{ rime_destination_paths[ansible_os_family] }}"
     state: link
     force: true
-  when: ansible_os_family in ['Linux', 'Darwin']
+  when: ansible_system in ['Linux', 'Darwin']
 
 - name: Symlink Rime config for Windows
   ansible.windows.win_file:
